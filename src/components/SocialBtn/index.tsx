@@ -3,10 +3,8 @@ import styled from "styled-components";
 
 const SocialWrapper = styled.div`
   display: flex;
-  justify-content: end;
   align-items: center;
   gap: 30px;
-  padding-right: 80px;
   div {
     width: 90px;
     height: 90px;
@@ -36,8 +34,16 @@ const Discord = styled.div`
 const SocialBtn: React.FC = () => {
   return (
     <SocialWrapper>
-      <Tweet />
-      <Discord />
+      <a
+        href="https://twitter.com/wearegoingtorug"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Tweet />
+      </a>
+      <a href="https://discord.gg/wagrp" target="_blank" rel="noreferrer">
+        <Discord />
+      </a>
     </SocialWrapper>
   );
 };

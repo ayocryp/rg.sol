@@ -23,7 +23,10 @@ export const Led = styled.div`
 
 export const Header = styled.div<{ isOn: boolean }>`
   padding-top: 20px;
-  display: ${({ isOn }) => (!isOn ? "none" : "block")};
+  display: ${({ isOn }) => (!isOn ? "none" : "flex")};
+  align-items: flex-end;
+  flex-direction: column;
+  padding-right: 50px;
 `;
 
 export const DrawerScop = styled.div<{ isOn: boolean }>`
