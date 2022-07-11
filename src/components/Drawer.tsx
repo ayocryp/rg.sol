@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ReactComponent as Cabinet } from "../../assets/cabinet.svg";
+import { ReactComponent as Cabinet } from "../../src/assets/cabinet.svg";
 import { gsap } from "gsap";
 
 const Drawer: React.FC = () => {

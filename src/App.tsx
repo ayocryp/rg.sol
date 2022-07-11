@@ -1,49 +1,45 @@
-import React from "react";
-import { useMemo } from "react";
-import { clusterApiUrl } from "@solana/web3.js";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import {
-  getPhantomWallet,
-  getSlopeWallet,
-  getSolflareWallet,
-  getSolletExtensionWallet,
-  getSolletWallet,
-} from "@solana/wallet-adapter-wallets";
-import {
-  ConnectionProvider,
-  WalletProvider,
-} from "@solana/wallet-adapter-react";
-import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
+import "./App.css";
+import Main from "./components/Main";
+import SwitchBtn from "./components/SwitchBtn";
+import SocialBtns from "./components/SocialBtns";
+import bgImgOff from "./assets/bg-off.png";
 
-// views
-import Main from "./views/main";
+function App() {
+  const mobileBgCSS = `    
+    .bg-light-on .main-bg-scene  {
+        background-image: url("../images/bg-on.png");
+    }
 
-const network = (process.env.REACT_APP_SOLANA_NETWORK ??
-  "devnet") as WalletAdapterNetwork;
-
-const App: React.FC = () => {
-  const endpoint = useMemo(() => clusterApiUrl(network), []);
-
-  const wallets = useMemo(
-    () => [
-      getPhantomWallet(),
-      getSolflareWallet(),
-      getSlopeWallet(),
-      getSolletWallet({ network }),
-      getSolletExtensionWallet({ network }),
-    ],
-    []
-  );
+    .main-bg-scene {        
+        background-image: url("../images/bg-off.png");
+    }
+    @media (min-width: 320px) and (max-width: 767.98px)  {
+        .bg-light-on .main-bg-scene  {
+            background-image: url("../images/bg-mobile-on.png");
+        }
+    
+        .main-bg-scene {        
+            background-image: url("./src/assets/bg-mobile-off.png");
+        }
+    }`;
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect>
-        <WalletDialogProvider>
+    <>
+      <style scoped>{mobileBgCSS}</style>
+
+      <main className="page-wrapper">
+        <div className="main-bg-scene">
+          <header className="header">
+            <nav className="navbar d-flex">
+              <SocialBtns />
+            </nav>
+          </header>
+          <SwitchBtn />
           <Main />
-        </WalletDialogProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+        </div>
+      </main>
+    </>
   );
-};
+}
 
 export default App;
