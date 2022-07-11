@@ -11,6 +11,8 @@ import {
 } from "./index.style";
 // assets
 import headingLottie from "../../assets/we-are-not.json";
+import mintbtn from "../../assets/mint-soon.json";
+
 // solana
 import { DEFAULT_TIMEOUT } from "../../utils/connection";
 import * as anchor from "@project-serum/anchor";
@@ -478,8 +480,7 @@ const Content: React.FC = () => {
 
       {!wallet.connected ? (
         <ConnectBtn>
-          <Connectbutton />
-          {/* <Lottie loop animationData={ConnectWallet} play speed={1} /> */}
+          <Lottie loop animationData={mintbtn} play speed={1} />
         </ConnectBtn>
       ) : (
         <MintButton
