@@ -6,7 +6,6 @@ const Drawer: React.FC = () => {
   const boxClick = (e: any) => {
     const path = e.path || e.composedPath();
     const imagePath = path[1];
-    console.log(imagePath);
     if (!imagePath.classList.contains("cabinet-box")) return false;
     imagePath.classList.remove("cabinet-box");
     if (!imagePath.classList.contains("open")) {
@@ -16,6 +15,18 @@ const Drawer: React.FC = () => {
         onComplete: function () {
           imagePath.classList.add("cabinet-box");
           imagePath.classList.add("open");
+          if (imagePath.id === "dont-know") {
+            window.open(
+              "https://twitter.com/WatcherGuru/status/1534956633251532801?s=20&t=YDVCD2HgNevt9wT8K9KK7Q",
+              "_blank"
+            );
+          }
+          if (imagePath.id === "contract") {
+            window.open(
+              "https://solscan.io/account/D6VgRJ6sGQUHM6yiiftk4bV7oVGzs9AqzFqFCG32Neie",
+              "_blank"
+            );
+          }
         },
       });
     } else {
@@ -38,7 +49,13 @@ const Drawer: React.FC = () => {
     };
   }, []);
 
-  return <Cabinet />;
+  return (
+    <div className="drawer-container">
+      <div className="box-container">
+        <Cabinet />
+      </div>
+    </div>
+  );
 };
 
 export default Drawer;

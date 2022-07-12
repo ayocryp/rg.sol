@@ -1,6 +1,6 @@
 import React from "react";
 
-const SwitchBtn = () => {
+const SwitchBtn: React.FC = () => {
   const elClick = () => {
     document.body.classList.toggle("bg-light-on");
     const cabinetEl: any = document.querySelector(".svg-cabinet");

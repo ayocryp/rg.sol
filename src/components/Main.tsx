@@ -14,9 +14,9 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="row">
+      {/* <div className="row">
         <div className="gapper"></div>
-      </div>
+      </div> */}
     </div>
   );
 };
