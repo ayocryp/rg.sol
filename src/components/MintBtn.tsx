@@ -100,6 +100,7 @@ const MintButton: React.FC<any> = ({
         background: "transparent",
         boxShadow: "none",
         border: "none",
+        borderRadius: "50%",
         width: "100%",
       }}
       disabled={!isActive}

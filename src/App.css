@@ -808,3 +808,14 @@ body {
     width: 180px;
   }
 }
+
+/* Wallet Address */
+.wallet_address {
+  color: red;
+  font-size: 30px !important;
+}
+@media screen and (max-width: 425px) {
+  .wallet_address {
+    font-size: 20px !important;
+  }
+}

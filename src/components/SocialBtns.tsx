@@ -1,6 +1,7 @@
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import React from "react";
+import { shortenAddress } from "../utils/utils";
 
 const SocialBtns: React.FC = () => {
   const wallet = useWallet();
@@ -33,12 +34,14 @@ const SocialBtns: React.FC = () => {
           </div>
         </a>
       </div>
-      {!wallet.connected && (
+      {!wallet.connected ? (
         <WalletDialogButton
           style={{
             cursor: "pointer",
             background: "transparent",
             boxShadow: "none",
+            border: "none",
+            borderRadius: "50%",
             width: "fit-content",
           }}
         >
@@ -48,6 +51,22 @@ const SocialBtns: React.FC = () => {
             className="connect-btn"
           />
         </WalletDialogButton>
+      ) : (
+        <button
+          style={{
+            cursor: "pointer",
+            background: "transparent",
+            boxShadow: "none",
+            border: "2px solid red",
+            borderRadius: "10%",
+            width: "fit-content",
+          }}
+          onClick={wallet.disconnect}
+        >
+          <span className="wallet_address">
+            {shortenAddress(`${wallet.publicKey}`)}
+          </span>
+        </button>
       )}
     </div>
   );
