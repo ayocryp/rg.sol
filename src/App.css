@@ -819,3 +819,11 @@ body {
     font-size: 20px !important;
   }
 }
+
+.MuiDialog-paper {
+  border-radius: 10% !important;
+  color: white !important;
+}
+.MuiButton-label {
+  color: #ffffff !important;
+}
