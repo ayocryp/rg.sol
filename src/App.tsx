@@ -2,8 +2,7 @@ import "./App.css";
 import Main from "./components/Main";
 import SwitchBtn from "./components/SwitchBtn";
 import SocialBtns from "./components/SocialBtns";
-import ReactAudioPlayer from "react-audio-player";
-import Mp3 from "./assets/audio/backgroundmusic.mp3";
+
 // Solana Integration
 import { useMemo, useState } from "react";
 import { clusterApiUrl } from "@solana/web3.js";
@@ -46,6 +45,7 @@ const mobileBgCSS = `
 
 const App: React.FC = () => {
   const endpoint = useMemo(() => clusterApiUrl(network), []);
+
   const wallets = useMemo(
     () => [
       getPhantomWallet(),
@@ -78,7 +78,6 @@ const App: React.FC = () => {
               </div>
             </main>
             <Loading />
-            <ReactAudioPlayer src={Mp3} autoPlay />
           </LoadingContext.Provider>
         </WalletDialogProvider>
       </WalletProvider>
